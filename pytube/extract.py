@@ -159,7 +159,8 @@ def channel_name(url: str) -> str:
     - :samp:`https://youtube.com/c/{channel_name}/*`
     - :samp:`https://youtube.com/channel/{channel_id}/*
     - :samp:`https://youtube.com/u/{channel_name}/*`
-    - :samp:`https://youtube.com/user/{channel_id}/*
+    - :samp:`https://youtube.com/user/{channel_id}/*`
+    - :samp:`https://youtube.com/@{channel_id}/*`
 
     :param str url:
         A YouTube url containing a channel name.
@@ -171,7 +172,8 @@ def channel_name(url: str) -> str:
         r"(?:\/(c)\/([%\d\w_\-]+)(\/.*)?)",
         r"(?:\/(channel)\/([%\w\d_\-]+)(\/.*)?)",
         r"(?:\/(u)\/([%\d\w_\-]+)(\/.*)?)",
-        r"(?:\/(user)\/([%\w\d_\-]+)(\/.*)?)"
+        r"(?:\/(user)\/([%\w\d_\-]+)(\/.*)?)",
+        r"(?:\/(@)([%\w\d_\-]+)(\/.*)?)"
     ]
     for pattern in patterns:
         regex = re.compile(pattern)
