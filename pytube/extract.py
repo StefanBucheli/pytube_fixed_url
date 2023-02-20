@@ -178,7 +178,9 @@ def channel_name(url: str) -> str:
     for pattern in patterns:
         regex = re.compile(pattern)
         function_match = regex.search(url)
+        print('test')
         if function_match:
+            print('in if')
             logger.debug("finished regex search, matched: %s", pattern)
             uri_style = function_match.group(1)
             uri_identifier = function_match.group(2)
